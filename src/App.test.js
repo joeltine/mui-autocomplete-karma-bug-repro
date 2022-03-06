@@ -10,6 +10,9 @@ describe('App test', () => {
     const ac = getByRole('textbox');
     // Type some text.
     await userEvent.type(ac, 'Hello!');
+
+    expect(ac.value).toBe('Hello!');
+
     // When Karma browser window doesn't have focus, every key press resets the
     // input value due.
   });
