@@ -1,8 +1,13 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import userEvent from '@testing-library/user-event';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App test', () => {
+  it('renders learn react link', async () => {
+    const {getByRole} = render(<App />);
+    const ac = getByRole('textbox');
+    await userEvent.type(ac, 'Hello!');
+  });
+})
+
